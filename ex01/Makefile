@@ -1,4 +1,4 @@
-NAME := bureaucrat
+NAME := sign_form
 OBJ_DIR := obj
 
 CXX := c++
