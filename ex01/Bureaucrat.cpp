@@ -6,19 +6,19 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:45 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/19 16:02:24 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/23 12:29:40 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("unknown"), _grade(s_LowestGrade) {}
+Bureaucrat::Bureaucrat() : _name("unknown"), _grade(s_lowest_grade) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
-	if (grade < s_HighestGrade) {
+	if (grade < s_highest_grade) {
 		throw GradeTooHighException();
 	}
-	if (grade > s_LowestGrade) {
+	if (grade > s_lowest_grade) {
 		throw GradeTooLowException();
 	}
 	_grade = grade;
@@ -47,23 +47,38 @@ int Bureaucrat::getGrade() const {
 }
 
 int Bureaucrat::getLowestGrade() {
-	return s_LowestGrade;
+	return s_lowest_grade;
 }
-	
+
 int Bureaucrat::getHighestGrade() {
-	return s_HighestGrade;
+	return s_highest_grade;
 }
 
 void Bureaucrat::incrementGrade() {
-	if (_grade <= 1)
+	if (_grade <= s_highest_grade)
 		throw (Bureaucrat::GradeTooHighException());
 	_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-	if (_grade >= 150)
+	if (_grade >= s_lowest_grade)
 		throw (Bureaucrat::GradeTooLowException());
 	_grade++;
+}
+
+void Bureaucrat::signForm(Form& form) const {
+	if (form.getIsSigned()) {
+		std::cout << "Form is already signed." << std::endl;
+		return;
+	}
+	try {
+		form.beSigned(*this);
+	} catch (Form::GradeTooLowException& e) {
+		std::cout << _name << " couldn't sign "
+		<< form.getName() << " because " << e.what() << std::endl;
+		return;
+	}
+	std::cout << _name << " signed " << form.getName() << std::endl;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
