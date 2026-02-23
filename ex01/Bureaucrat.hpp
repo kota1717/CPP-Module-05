@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX00_BUREAUCRAT_HPP_
-#define	EX00_BUREAUCRAT_HPP_
+#ifndef EX01_BUREAUCRAT_HPP_
+#define	EX01_BUREAUCRAT_HPP_
 
 #include <iostream>
 
@@ -29,6 +29,8 @@ public:
 
 	const std::string& getName() const;
 	int getGrade() const;
+	static int getLowestGrade() ;
+	static int getHighestGrade() ;
 	void incrementGrade();
 	void decrementGrade();
 

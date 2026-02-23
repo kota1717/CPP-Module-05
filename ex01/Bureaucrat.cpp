@@ -46,6 +46,14 @@ int Bureaucrat::getGrade() const {
 	return _grade;
 }
 
+int Bureaucrat::getLowestGrade() {
+	return s_LowestGrade;
+}
+	
+int Bureaucrat::getHighestGrade() {
+	return s_HighestGrade;
+}
+
 void Bureaucrat::incrementGrade() {
 	if (_grade <= 1)
 		throw (Bureaucrat::GradeTooHighException());
