@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:04:19 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/23 11:57:47 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/23 13:55:24 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #define EX01_FORM_HPP_
 
 #include <iostream>
+#include <string>
 
-#include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form {
     const std::string _name;
@@ -32,11 +33,10 @@ public:
     ~Form();
     const std::string& getName() const;
     bool getIsSigned() const;
-    const int getGradeToSign() const;
-    const int getGradeToExecute() const;
+    int getGradeToSign() const;
+    int getGradeToExecute() const;
 
     void beSigned(const Bureaucrat& other);
-    void signForm();
 
     class GradeTooHighException : public std::exception {
         public:
