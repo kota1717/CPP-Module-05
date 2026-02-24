@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 16:11:16 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/23 16:16:03 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/24 18:09:25 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,14 @@ void Bureaucrat::signForm(AForm& form) const {
 }
 
 void Bureaucrat::executeForm(AForm const& form) const {
-
+	try {
+		form.execute(*this);
+	} catch(const std::exception& e) {
+		std::cout << _name << " could'nt execute " <<
+		form.getName() << " because " << e.what() << std::endl;
+		return;
+	std::cout << _name << " executed " << form.getName() << std::endl;
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {

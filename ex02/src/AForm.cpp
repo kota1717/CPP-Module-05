@@ -77,7 +77,25 @@ const char* AForm::GradeTooLowException::what() const throw () {
     return "Grade is too low.";
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form) {
+const char* AForm::FormNotSignedException::what() const throw () {
+    return "Form is not signed yet.";
+}
+
+void AForm::execute(Bureaucrat const & executor) const {
+    if (!_is_signed) {
+        throw FormNotSignedException();
+    }
+    if (executor.getGrade() > _grade_to_execute) {
+        throw GradeTooLowException();
+    }
+    executeAction();
+}
+
+// フォームに署名がされていること、
+// およびフォームの実行を試みる官僚の階級が十分に高いことを必ず確認する必要があります。
+// 条件を満たしていない場合は、適切な例外をスローしてください。
+
+std::ostream& operator<<(std::ostream& os, const AForm& form) {
     os << "AForm information:" << std::endl
        << "Name: " << form.getName() << std::endl
        << "Is signed? " << std::boolalpha << form.getIsSigned() << std::endl
