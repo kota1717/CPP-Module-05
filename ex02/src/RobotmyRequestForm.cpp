@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:31:21 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/24 17:31:31 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/25 19:04:54 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,16 @@ RobotmyRequestForm& RobotmyRequestForm::operator=(const RobotmyRequestForm& othe
 }
 
 RobotmyRequestForm::~RobotmyRequestForm() {}
+
+const std::string RobotmyRequestForm::getTarget() const {
+	return _target;
+}
+
+void RobotmyRequestForm::executeAction() const {
+	std::cout << "Vvvvvvvv...! (drilling noises)" << std::endl;
+	if (std::rand() % 2 == 0) {
+		std::cout << getTarget() << " has been robotomized successfully" << std::endl;
+	} else {
+		std::cout << "The robotomy on" << getTarget() << " failed." << std::endl;
+	}
+}

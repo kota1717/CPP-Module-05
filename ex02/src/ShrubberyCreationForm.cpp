@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:26:35 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/24 17:33:36 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/25 18:50:16 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,23 @@ ShurubberyCreationForm& ShurubberyCreationForm::operator=(const ShurubberyCreati
 }
 
 ShurubberyCreationForm::~ShurubberyCreationForm() {}
+
+const std::string ShurubberyCreationForm::getTarget() const {
+	return _target;
+}
+
+void ShurubberyCreationForm::executeAction() const {
+	std::string filename = _target + "_shrubbery";
+	std::string filename = getTarget() + "_shrubbery";
+	std::ofstream outfile(filename.c_str());
+
+	if (!outfile.is_open()) {
+		std::cout << "Could'nt open file" << std::endl;
+		return;
+	}
+	outfile << "     /\\    " << "\n"
+          << "    /  \\   " << "\n"
+          << "   /    \\  " << "\n"
+          << "  /______\\ " << "\n"
+          << "     | |     " << "\n";
+}

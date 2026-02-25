@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:31:46 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/24 17:29:55 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/25 19:12:46 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
+
+const std::string PresidentialPardonForm::getTarget() const {
+	return _target;
+}
 
 void PresidentialPardonForm::executeAction() const {
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;

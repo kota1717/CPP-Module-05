@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:12:34 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/24 16:50:19 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/25 19:05:03 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ public:
 	RobotmyRequestForm(const std::string& target);
 	RobotmyRequestForm& operator=(const RobotmyRequestForm& other);
 	virtual ~RobotmyRequestForm();
+
+	const std::string RobotmyRequestForm::getTarget() const;
 
 	virtual void executeAction() const;
 };
