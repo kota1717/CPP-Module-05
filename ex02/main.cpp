@@ -21,7 +21,7 @@ int main() {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
 	Bureaucrat ichiro("ichiro", 144);
-	ShurubberyCreationForm shrubbery_form("home");
+	ShrubberyCreationForm shrubbery_form("home");
 
 	ichiro.signForm(shrubbery_form);
 	ichiro.executeForm(shrubbery_form);

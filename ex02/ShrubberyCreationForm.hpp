@@ -16,15 +16,15 @@
 #include "AForm.hpp"
 #include <fstream>
 
-class ShurubberyCreationForm :public AForm {
+class ShrubberyCreationForm :public AForm {
 	std::string _target;
 
 public:
-	ShurubberyCreationForm();
-	ShurubberyCreationForm(const std::string& target);
-	ShurubberyCreationForm(const ShurubberyCreationForm& other);
-	ShurubberyCreationForm& operator=(const ShurubberyCreationForm& other);
-	virtual ~ShurubberyCreationForm();
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(const std::string& target);
+	ShrubberyCreationForm(const ShrubberyCreationForm& other);
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+	virtual ~ShrubberyCreationForm();
 
 	const std::string getTarget() const;
 

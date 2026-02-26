@@ -15,16 +15,16 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShurubberyCreationForm::ShurubberyCreationForm()
-	: AForm("Shurubbery Creation", 145, 137), _target("unknown") {}
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: AForm("Shrubbery Creation", 145, 137), _target("unknown") {}
 
-ShurubberyCreationForm::ShurubberyCreationForm(const std::string& target)
-	: AForm("Shurubbery Creation", 145, 137), _target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
+	: AForm("Shrubbery Creation", 145, 137), _target(target) {}
 
-ShurubberyCreationForm::ShurubberyCreationForm(const ShurubberyCreationForm& other)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 	: AForm(other), _target(other._target) {}
 
-ShurubberyCreationForm& ShurubberyCreationForm::operator=(const ShurubberyCreationForm& other) {
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
 	if (this == &other) {
 		return *this;
 	}
@@ -32,13 +32,13 @@ ShurubberyCreationForm& ShurubberyCreationForm::operator=(const ShurubberyCreati
 	return *this;
 }
 
-ShurubberyCreationForm::~ShurubberyCreationForm() {}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-const std::string ShurubberyCreationForm::getTarget() const {
+const std::string ShrubberyCreationForm::getTarget() const {
 	return _target;
 }
 
-void ShurubberyCreationForm::executeAction() const {
+void ShrubberyCreationForm::executeAction() const {
 	std::string filename = getTarget() + "_shrubbery";
 	std::ofstream outfile(filename.c_str());
 
