@@ -19,7 +19,7 @@
 class Bureaucrat;
 
 class AForm {
-    const std::string _name;
+    const std::string _title;
     bool _is_signed;
     const int _grade_to_sign;
     const int _grade_to_execute;
@@ -29,12 +29,12 @@ protected:
 
 public:
     AForm();
-    AForm(const std::string name,
+    AForm(const std::string title,
         const int grade_to_sign, const int grade_to_execute);
     AForm(const AForm& other);
     AForm& operator=(const AForm& other);
     ~AForm();
-    const std::string& getName() const;
+    const std::string& getTitle() const;
     bool getIsSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;

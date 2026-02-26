@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotmyRequestForm.hpp                             :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:12:34 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/25 19:05:03 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/26 10:34:31 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX02_ROBOTMYREQUESTFORM_HPP_
-#define EX02_ROBOTMYREQUESTFORM_HPP_
+#ifndef EX02_ROBOTOMYREQUESTFORM_HPP_
+#define EX02_ROBOTOMYREQUESTFORM_HPP_
 
 #include "AForm.hpp"
 
-class RobotmyRequestForm :public AForm {
+#include <cstdlib>
+
+class RobotomyRequestForm :public AForm {
 	std::string _target;
 
 public:
-	RobotmyRequestForm();
-	RobotmyRequestForm(const std::string& target);
-	RobotmyRequestForm& operator=(const RobotmyRequestForm& other);
-	virtual ~RobotmyRequestForm();
+	RobotomyRequestForm();
+	RobotomyRequestForm(const std::string& target);
+	RobotomyRequestForm(const RobotomyRequestForm& other);
+	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
+	virtual ~RobotomyRequestForm();
 
-	const std::string RobotmyRequestForm::getTarget() const;
+	const std::string getTarget() const;
 
 	virtual void executeAction() const;
 };

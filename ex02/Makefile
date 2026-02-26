@@ -1,28 +1,26 @@
-NAME :=
+TARGET := execute_form
 
 CXX := c++
-CXXFLAGS := -Wall -Werror -Wextra -std=c++98 -pedantic -I includes
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 RMDIR := rm -rf
 
-SRCS_DIR := src
-INCLUDES_DIR := includes
 OBJ_DIR := obj
 
-SRCS := $(SRC_DIR)/Bureaucrat.cpp \
-				$(SRC_DIR)/Form.cpp \
-				$(SRC_DIR)/PresidentialPardonForm.cpp
-				$(SRC_DIR)/RobotomyRequestForm.cpp
-				$(SRC_DIR)/ShrubberyCreationForm.cpp
-				$(SRC_DIR)/main.cpp
+SRCS := Bureaucrat.cpp \
+				AForm.cpp \
+				PresidentialPardonForm.cpp \
+				RobotomyRequestForm.cpp \
+				ShrubberyCreationForm.cpp \
+				main.cpp
 
-OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+OBJS := $(SRCS:%.cpp=%.o)
 
-all: $(NAME)
+all: $(TARGET)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+$(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
@@ -31,8 +29,11 @@ clean:
 	$(RMDIR) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(TARGET)
+
+valgrind: $(TARGET)
+	valgrind --leak-check=full --show-leak-kinds=reachable --track-origins=yes ./$(TARGET)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re valgrind

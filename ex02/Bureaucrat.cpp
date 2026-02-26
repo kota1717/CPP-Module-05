@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 16:11:16 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/24 18:09:25 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/26 10:55:20 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ void Bureaucrat::signForm(AForm& form) const {
 	}
 	try {
 		form.beSigned(*this);
-		std::cout << _name << " signed " << form.getName() << std::endl;
+		std::cout << _name << " signed " << form.getTitle() << std::endl;
 	} catch (const AForm::GradeTooLowException& e) {
 		std::cout << _name << " couldn't sign "
-		<< form.getName() << " because " << e.what() << std::endl;
+		<< form.getTitle() << " because " << e.what() << std::endl;
 	}
 }
 
@@ -85,9 +85,9 @@ void Bureaucrat::executeForm(AForm const& form) const {
 		form.execute(*this);
 	} catch(const std::exception& e) {
 		std::cout << _name << " could'nt execute " <<
-		form.getName() << " because " << e.what() << std::endl;
+		form.getTitle() << " because " << e.what() << std::endl;
 		return;
-	std::cout << _name << " executed " << form.getName() << std::endl;
+	std::cout << _name << " executed " << form.getTitle() << std::endl;
 	}
 }
 

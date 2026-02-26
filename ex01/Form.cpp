@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:04:22 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/23 13:52:01 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/26 10:54:32 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include "Bureaucrat.hpp"
 
 Form::Form()
-    : _name("Unknown"),
+    : _title("Unknown"),
       _is_signed(false),
       _grade_to_sign(Bureaucrat::getHighestGrade()),
       _grade_to_execute(Bureaucrat::getHighestGrade()) {}
 
-Form::Form(const std::string name,
+Form::Form(const std::string title,
         const int grade_to_sign, const int grade_to_execute)
-    : _name(name),
+    : _title(title),
       _is_signed(false),
       _grade_to_sign(grade_to_sign),
       _grade_to_execute(grade_to_execute) {
@@ -39,7 +39,7 @@ Form::Form(const std::string name,
 }
 
 Form::Form(const Form& other)
-    : _name(other._name),
+    : _title(other._title),
       _is_signed(other._is_signed),
       _grade_to_sign(other._grade_to_sign),
       _grade_to_execute(other._grade_to_execute) {}
@@ -54,7 +54,7 @@ Form& Form::operator=(const Form& other) {
 
 Form::~Form() {}
 
-const std::string& Form::getName() const { return _name; }
+const std::string& Form::getTitle() const { return _title; }
 
 bool Form::getIsSigned() const { return _is_signed; }
 
@@ -79,7 +79,7 @@ const char* Form::GradeTooLowException::what() const throw () {
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
     os << "Form information:" << std::endl
-       << "Name: " << form.getName() << std::endl
+       << "Name: " << form.getTitle() << std::endl
        << "Is signed? " << std::boolalpha << form.getIsSigned() << std::endl
        << "Grade required to sign: " << form.getGradeToSign() << std::endl
        << "Grade required to execute: " << form.getGradeToExecute();

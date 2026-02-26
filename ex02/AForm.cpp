@@ -14,14 +14,14 @@
 #include "Bureaucrat.hpp"
 
 AForm::AForm()
-    : _name("Unknown"),
+    : _title("Unknown"),
       _is_signed(false),
       _grade_to_sign(Bureaucrat::getHighestGrade()),
       _grade_to_execute(Bureaucrat::getHighestGrade()) {}
 
-AForm::AForm(const std::string name,
+AForm::AForm(const std::string title,
         const int grade_to_sign, const int grade_to_execute)
-    : _name(name),
+    : _title(title),
       _is_signed(false),
       _grade_to_sign(grade_to_sign),
       _grade_to_execute(grade_to_execute) {
@@ -39,7 +39,7 @@ AForm::AForm(const std::string name,
 }
 
 AForm::AForm(const AForm& other)
-    : _name(other._name),
+    : _title(other._title),
       _is_signed(other._is_signed),
       _grade_to_sign(other._grade_to_sign),
       _grade_to_execute(other._grade_to_execute) {}
@@ -54,7 +54,7 @@ AForm& AForm::operator=(const AForm& other) {
 
 AForm::~AForm() {}
 
-const std::string& AForm::getName() const { return _name; }
+const std::string& AForm::getTitle() const { return _title; }
 
 bool AForm::getIsSigned() const { return _is_signed; }
 
@@ -97,7 +97,7 @@ void AForm::execute(Bureaucrat const & executor) const {
 
 std::ostream& operator<<(std::ostream& os, const AForm& form) {
     os << "AForm information:" << std::endl
-       << "Name: " << form.getName() << std::endl
+       << "Name: " << form.getTitle() << std::endl
        << "Is signed? " << std::boolalpha << form.getIsSigned() << std::endl
        << "Grade required to sign: " << form.getGradeToSign() << std::endl
        << "Grade required to execute: " << form.getGradeToExecute();

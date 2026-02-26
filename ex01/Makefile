@@ -1,8 +1,8 @@
-NAME := sign_form
+TARGET := sign_form
 OBJ_DIR := obj
 
 CXX := c++
-CXXFLAGS := -Wall -Werror -Wextra -std=c++98 -pedantic
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 RMDIR := rm -rf
 
 SRCS := Bureaucrat.cpp \
@@ -11,10 +11,10 @@ SRCS := Bureaucrat.cpp \
 
 OBJS := $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
-all: $(NAME)
+all: $(TARGET)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
@@ -25,8 +25,11 @@ clean:
 	$(RMDIR) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(TARGET)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+valgrind: $(TARGET)
+	valgrind --leak-check=full --show-leak-kinds=reachable --track-origins=yes ./$(TARGET)
+
+.PHONY: all clean fclean re valgrind

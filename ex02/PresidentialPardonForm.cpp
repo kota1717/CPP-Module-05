@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:31:46 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/25 19:12:46 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/26 11:11:29 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 PresidentialPardonForm::PresidentialPardonForm()
 	: AForm("Presidential Pardon", 25, 5), _target("unknown") {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string& target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
 	: AForm("Presidential Pardon", 25, 5), _target(target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)

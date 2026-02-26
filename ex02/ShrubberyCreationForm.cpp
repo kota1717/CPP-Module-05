@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:26:35 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/25 18:50:16 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/26 11:24:17 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ const std::string ShurubberyCreationForm::getTarget() const {
 }
 
 void ShurubberyCreationForm::executeAction() const {
-	std::string filename = _target + "_shrubbery";
 	std::string filename = getTarget() + "_shrubbery";
 	std::ofstream outfile(filename.c_str());
 
@@ -51,5 +50,5 @@ void ShurubberyCreationForm::executeAction() const {
           << "    /  \\   " << "\n"
           << "   /    \\  " << "\n"
           << "  /______\\ " << "\n"
-          << "     | |     " << "\n";
+          << "    | |     " << "\n";
 }

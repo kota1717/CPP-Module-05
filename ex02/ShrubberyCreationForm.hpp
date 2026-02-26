@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:12:36 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/25 18:50:21 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/26 10:34:59 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ShurubberyCreationForm :public AForm {
 public:
 	ShurubberyCreationForm();
 	ShurubberyCreationForm(const std::string& target);
+	ShurubberyCreationForm(const ShurubberyCreationForm& other);
 	ShurubberyCreationForm& operator=(const ShurubberyCreationForm& other);
 	virtual ~ShurubberyCreationForm();
 
