@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:26:35 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/26 11:39:12 by ikota            ###   ########.fr       */
+/*   Updated: 2026/02/26 11:24:17 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShurubberyCreationForm::ShurubberyCreationForm()
-	: AForm("Shurubbery Creation", 145, 137), _target("nowhere") {}
+	: AForm("Shurubbery Creation", 145, 137), _target("unknown") {}
 
 ShurubberyCreationForm::ShurubberyCreationForm(const std::string& target)
 	: AForm("Shurubbery Creation", 145, 137), _target(target) {}
