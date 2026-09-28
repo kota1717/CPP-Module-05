@@ -36,10 +36,13 @@ AForm* makePresidentialPardonForm(const std::string& target) {
 
 Intern::Intern() {}
 
-Intern::Intern(const Intern& other) {}
+Intern::Intern(const Intern& other) {
+    (void)other;
+}
 
 Intern& Intern::operator=(const Intern& other) {
-
+    (void)other;
+    return *this;
 }
 
 Intern::~Intern() {}
@@ -50,14 +53,17 @@ AForm* Intern::makeForm(const std::string& form_title,
   MakeFormFuncs helper_functions[] = {&makeShrubberyCreationForm,
                                       &makeRobotomyRequestForm,
                                       &makePresidentialPardonForm};
-  const std::string titles[] = {"shruberry creation", "robotomy request",
+  const std::string titles[] = {"shrubberry creation", "robotomy request",
                                 "presidential pardon"};
   for (unsigned int i = 0; i < sizeof(titles) / sizeof(titles[0]); i++) {
     if (titles[i] == form_title) {
+        std::cout << "Intern creates " << form_title << std::endl;
         return (helper_functions[i])(form_target);
     }
   }
-  
+  std::cout << "Intern creates " << form_title
+            << " because the form name does not exist." << std::endl;
+    return NULL;
 }
 
 // この関数は、パラメータとして渡されたフォーム名

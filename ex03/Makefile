@@ -11,6 +11,7 @@ SRCS := Bureaucrat.cpp \
 				PresidentialPardonForm.cpp \
 				RobotomyRequestForm.cpp \
 				ShrubberyCreationForm.cpp \
+				Intern.cpp \
 				main.cpp
 
 OBJS := $(SRCS:%.cpp=%.o)

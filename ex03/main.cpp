@@ -15,15 +15,14 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 #include <ctime>
 
 int main() {
-	
-
+	Intern someRandomIntern;
+	AForm* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	(void)rrf;
 	return 0;
 }
 
-//std::rand()はデフォルトのままだとプログラムを何度実行してもおなじ順番で成功失敗がでる。
-// プログラムを実行するたびに毎回同じ結果（乱数の列）になる。
-// コンピュータのメモリ上のどこかに、乱数生成用の共通変数(state)が隠れている。
-// srand()はその変数の値を書き換える。rand()はその変数の値を読み取って計算し、結果でその変数を上書き
