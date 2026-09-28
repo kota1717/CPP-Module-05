@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:45 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/23 13:39:40 by ikota            ###   ########.fr       */
+/*   Updated: 2026/09/28 16:23:47 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ void Bureaucrat::signForm(Form& form) const {
 	}
 	try {
 		form.beSigned(*this);
-		std::cout << _name << " signed " << form.getName() << std::endl;
-	} catch (const Form::GradeTooLowException& e) {
+		std::cout << _name << " signed " << form.getTitle() << std::endl;
+	} catch (const std::exception& e) {
 		std::cout << _name << " couldn't sign "
-		<< form.getName() << " because " << e.what() << std::endl;
+		<< form.getTitle() << " because " << e.what() << std::endl;
 	}
 }
 
