@@ -20,7 +20,7 @@
 int main() {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
-	Bureaucrat ichiro("ichiro", 144);
+	Bureaucrat ichiro("ichiro", 1);
 	ShrubberyCreationForm shrubbery_form("home");
 
 	ichiro.signForm(shrubbery_form);
