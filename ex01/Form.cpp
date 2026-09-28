@@ -6,7 +6,7 @@
 /*   By: ikota <ikota@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:04:22 by ikota             #+#    #+#             */
-/*   Updated: 2026/02/26 10:54:32 by ikota            ###   ########.fr       */
+/*   Updated: 2026/09/28 16:32:03 by ikota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ const char* Form::GradeTooLowException::what() const throw () {
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << "Form information:" << std::endl
+    os << "--Form information--" << std::endl
        << "Name: " << form.getTitle() << std::endl
-       << "Is signed? " << std::boolalpha << form.getIsSigned() << std::endl
+       << "Is signed?: " << std::boolalpha << form.getIsSigned() << std::endl
        << "Grade required to sign: " << form.getGradeToSign() << std::endl
        << "Grade required to execute: " << form.getGradeToExecute();
     return os;
