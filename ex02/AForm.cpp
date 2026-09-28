@@ -91,10 +91,6 @@ void AForm::execute(Bureaucrat const & executor) const {
     executeAction();
 }
 
-// フォームに署名がされていること、
-// およびフォームの実行を試みる官僚の階級が十分に高いことを必ず確認する必要があります。
-// 条件を満たしていない場合は、適切な例外をスローしてください。
-
 std::ostream& operator<<(std::ostream& os, const AForm& form) {
     os << "AForm information:" << std::endl
        << "Name: " << form.getTitle() << std::endl
