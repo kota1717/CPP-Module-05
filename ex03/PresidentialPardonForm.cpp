@@ -10,11 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// PresidentialPardonForm：必須グレード：sign 25、exec 5
-// <target>がザフォド・ビーブルブロックスによって恩赦を受けたことを通知します。
-// これらのクラスはすべてコンストラクタに1つのパラメータのみを必要とします：フォームの対象です。
-// 例えば、自宅で低木を植える場合は「home」を指定します。
-
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
