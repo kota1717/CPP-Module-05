@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// ShrubberyCreationForm：必須グレード：sign 145、exec 137
-// 作業ディレクトリ内に<target>_shrubberyというファイルを作成し、その内部にASCII形式の樹木データを書き込みます。
-
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()

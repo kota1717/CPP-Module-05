@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// 掘削音のような音を発生させた後、<target>のロボトミー手術が50%の確率で正常に完了したことを通知します。
-// 失敗した場合はロボトミー手術が失敗したことを通知します。
-
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
@@ -46,6 +43,3 @@ void RobotomyRequestForm::executeAction() const {
 		std::cout << "The robotomy on " << getTarget() << " failed." << std::endl;
 	}
 }
-
-//rand() 0~RAND_MAXまでの整数を返す。だいたい同じくらいの確率で数字が現れるように設計
-//次の乱数=(前回の乱数*すごく大きな数＋変な数)　数式になっている
