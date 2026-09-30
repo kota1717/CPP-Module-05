@@ -1,5 +1,4 @@
 TARGET := execute_form
-OBJ_DIR := obj
 
 CXX := c++
 CXXFLAGS := -Wall -Werror -Wextra -std=c++98
