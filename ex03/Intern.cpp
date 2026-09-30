@@ -65,8 +65,3 @@ AForm* Intern::makeForm(const std::string& form_title,
             << " because the form name does not exist." << std::endl;
     return NULL;
 }
-
-// この関数は、パラメータとして渡されたフォーム名
-// に対応するAFormオブジェクトへのポインタを返し、
-// その対象は2つ目のパラメータで初期化されます。
-// もし指定されたフォーム名が存在しない場合は、明確なエラーメッセージの出力

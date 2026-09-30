@@ -44,5 +44,3 @@ void RobotomyRequestForm::executeAction() const {
 	}
 }
 
-//rand() 0~RAND_MAXまでの整数を返す。だいたい同じくらいの確率で数字が現れるように設計
-//次の乱数=(前回の乱数*すごく大きな数＋変な数)　数式になっている
