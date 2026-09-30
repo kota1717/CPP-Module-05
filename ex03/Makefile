@@ -1,4 +1,5 @@
 TARGET := intern
+OBJ_DIR := obj
 
 CXX := c++
 CXXFLAGS := -Wall -Werror -Wextra -std=c++98
@@ -14,7 +15,7 @@ SRCS := Bureaucrat.cpp \
 				Intern.cpp \
 				main.cpp
 
-OBJS := $(SRCS:%.cpp=%.o)
+OBJS := $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(TARGET)
 
